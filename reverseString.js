@@ -6,7 +6,7 @@ reverseString('hello'); // “olleh”
 reverseString('Howdy'); // “ydwoH”
 reverseString('Greetings from Earth'); // ”htraE morf sgniteerG”
 
-//! --- Solution #1 ---
+//! --- Solution #1 --- 1. Reverse a String With Built-In Functions
 /* function reverseString(str) {
     // Step 1. Use the split() method to return a new array
     var splitString = str.split(''); // var splitString = "hello".split("");
@@ -31,4 +31,30 @@ function reverseString(str) {
     return joinArray;
 }
 
+// Chaining the three methods together:
+function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+reverseString('hello');
+
+//! --- Solution #2 --- 2. Reverse a String With a Decrementing For Loop
+function reverseString(str) {
+    var newString = '';
+    for (var i = str.length - 1; i >= 0; i--) {
+        newString += str[i];
+    }
+    return newString;
+}
+reverseString('hello');
+
+//! --- Solution #3 --- 3. Reverse a String With Recursion
+function reverseString(str) {
+    return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0);
+}
+reverseString('hello');
+
+// OR
+function reverseString(str) {
+    return str === '' ? '' : reverseString(str.substr(1)) + str.charAt(0);
+}
 reverseString('hello');
